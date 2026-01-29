@@ -1,0 +1,38 @@
+<header>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a routerLink="/" class="logo-link">
+        <i class="fas fa-bullseye"></i>
+        <span>WolfTasks</span>
+      </a>
+      @if (isAuthenticated()) {
+        <div class="user-info">{{ userName() }}</div>
+      }
+    </div>
+
+    @if (isAuthenticated()) {
+      <div class="nav-links">
+        <a class="navbar-item" routerLink="/">
+          דף הבית
+        </a>
+        <a class="navbar-item" routerLink="/teams">
+          צוותים
+        </a>
+        <button class="navbar-item logout-btn" (click)="logout()">
+          התנתקות
+        </button>
+      </div>
+    }
+
+    @if (!isAuthenticated()) {
+      <div class="nav-links">
+        <a class="navbar-item" routerLink="/login">
+          <i class="fas fa-right-to-bracket"></i> התחברות
+        </a>
+        <a class="navbar-item" routerLink="/register">
+          <i class="fas fa-user-plus"></i> הרשמה
+        </a>
+      </div>
+    }
+  </nav>
+</header>

@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 90px;
+  padding-bottom: 80px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  min-height: calc(100vh - 170px);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: linear-gradient(135deg, #f0e0f0 0%, #e0f0f5 100%);
+  border-top: 2px solid #d4b5d9;
+  box-shadow: 0 -4px 20px rgba(200, 150, 200, 0.15);
+  padding: 1.5rem 2rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  color: #6b4c7a;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.footer-content p:first-child {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a3a6a;
+}

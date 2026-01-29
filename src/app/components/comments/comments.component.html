@@ -1,0 +1,37 @@
+<div class="comments-container">
+  <h3>💬 תגובות</h3>
+
+  @if (errorMessage) {
+    <div class="error-message-small">
+      <p>{{ errorMessage }}</p>
+      <button (click)="errorMessage = null">סגור</button>
+    </div>
+  }
+
+  <div class="comments-list">
+    @if (comments().length === 0) {
+      <p class="no-comments">אין עדיין תגובות למשימה זו</p>
+    }
+
+    @for (comment of comments(); track comment.id) {
+      <div class="comment-item">
+        <div class="comment-header">
+          <strong>{{ comment.author_name || 'משתמש' }}</strong>
+          <span class="date">{{ comment.created_at | date:'dd/MM/yyyy HH:mm' }}</span>
+        </div>
+        <div class="comment-body">
+          {{ comment.body }}
+        </div>
+      </div>
+    }
+  </div>
+
+  <form [formGroup]="body" (ngSubmit)="sendComment()" class="comment-form">
+    <textarea 
+      placeholder="כתוב תגובה..." 
+      formControlName="content"
+      rows="3"></textarea>
+    
+    <button type="submit" [disabled]="body.invalid">✏️ שלח תגובה</button>
+  </form>
+</div>

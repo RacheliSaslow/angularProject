@@ -1,0 +1,36 @@
+<div class="projects-container">
+  <h2>פרויקטים בצוות</h2>
+
+  @if (errorMessage) {
+    <div class="error-message">
+      <p>{{ errorMessage }}</p>
+      <button (click)="errorMessage = null">סגור</button>
+    </div>
+  }
+
+
+  <div class="create-section">
+    <form [formGroup]="createProjectForm" (ngSubmit)="onCreateProject()">
+      <input type="text" placeholder="שם הפרויקט החדש" formControlName="name" />
+      <button type="submit" [disabled]="createProjectForm.invalid">
+        צור פרויקט חדש
+      </button>
+    </form>
+  </div>
+
+  <div class="projects-grid">
+    @for (project of project(); track project.id) {
+      <div class="project-card">
+        <h3>{{ project.name }}</h3>
+        <button [routerLink]="['/teams', teamId, 'projects', project.id, 'tasks']">
+          ✅ צפה במשימות
+        </button>
+      </div>
+    } @empty {
+      <div class="empty-state">
+        <p>אין פרויקטים בצוות זה עדיין</p>
+        <p>צור פרויקט חדש כדי להתחיל!</p>
+      </div>
+    }
+  </div>
+</div>

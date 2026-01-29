@@ -1,0 +1,154 @@
+.auth-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #fff5fa 0%, #f0f5ff 100%);
+  border-radius: 16px;
+  border: 2px solid #e8d5e8;
+  box-shadow: 0 8px 20px rgba(200, 150, 200, 0.1);
+  font-family: 'Rubik', sans-serif;
+}
+
+.auth-container h2 {
+  text-align: center;
+  color: #6b4c7a;
+  font-size: 2rem;
+  margin: 0 0 2rem 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.visibility-toggle {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.visibility-toggle:focus, .visibility-toggle:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #6b4c7a;
+  font-weight: 600;
+  text-align: right;
+}
+
+input[type="email"],
+.password-wrapper input[type="password"],
+.password-wrapper input[type="text"] {
+  width: 90%;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #d4b5d9;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Rubik', sans-serif;
+  background-color: white;
+  color: #333;
+  transition: all 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #7a5a8a;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(122, 90, 138, 0.1);
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #b0a0b5;
+}
+
+.auth-container button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #f5b8d1 0%, #e8a5c5 100%);
+  color: #6b4c7a;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 1rem;
+}
+
+.auth-container button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f09bc8 0%, #e390c0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 150, 200, 0.2);
+}
+
+.auth-container button:disabled {
+  background: #d4b5d9;
+  cursor: not-allowed;
+  color: #999;
+}
+
+
+.auth-container p {
+  text-align: center;
+  margin-top: 2rem;
+  color: #7a5a8a;
+  font-family: 'Rubik', sans-serif;
+}
+
+.auth-container a {
+  color: #7a5a8a;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.auth-container a:hover {
+  color: #5a3a6a;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.validation-error {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  min-height: 1.2rem;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

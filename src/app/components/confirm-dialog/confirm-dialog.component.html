@@ -1,0 +1,15 @@
+@if (dialogState().isOpen) {
+  <div class="dialog-overlay">
+    <div class="dialog-box">
+      <p>{{ dialogState().message }}</p>
+      <div class="dialog-actions">
+        @if (dialogState().type === 'confirm') {
+          <button class="btn-confirm" (click)="dialogService.confirm()">אישור</button>
+          <button class="btn-cancel" (click)="dialogService.cancel()">ביטול</button>
+        } @else {
+          <button class="btn-confirm" (click)="dialogService.confirm()">הבנתי</button>
+        }
+      </div>
+    </div>
+  </div>
+}

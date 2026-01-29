@@ -1,0 +1,152 @@
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+.projects-container h2 {
+  font-size: 2.2rem;
+  color: #6b4c7a;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.create-section {
+  background: linear-gradient(135deg, #f0e0f0 0%, #e0f0f5 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(200, 150, 200, 0.1);
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+input {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #d4b5d9;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-family: 'Rubik', sans-serif;
+}
+
+input:focus {
+  outline: none;
+  border-color: #7a5a8a;
+  box-shadow: 0 0 0 3px rgba(122, 90, 138, 0.1);
+}
+
+input::placeholder {
+  color: #b0a0b5;
+}
+
+form button {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #b8d1f5 0%, #a5c5e8 100%);
+  color: #6b4c7a;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+}
+
+form button:disabled {
+  background: #d4b5d9;
+  cursor: not-allowed;
+  color: #999;
+}
+
+form button:not(:disabled):hover {
+  background: linear-gradient(135deg, #a8c5f5 0%, #95b5e8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 150, 200, 0.2);
+}
+
+/* רשימת כרטיסים (Grid) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: linear-gradient(135deg, #fff5fa 0%, #f0f5ff 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 2px solid #e8d5e8;
+  box-shadow: 0 4px 15px rgba(200, 150, 200, 0.1);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(200, 150, 200, 0.2);
+  border-color: #d4b5d9;
+}
+
+.project-card h3 {
+  color: #6b4c7a;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.project-card button {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #f5b8d1 0%, #e8a5c5 100%);
+  color: #6b4c7a;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 0.8rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.95rem;
+}
+
+.project-card button:hover {
+  background: linear-gradient(135deg, #f09bc8 0%, #e390c0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 150, 200, 0.2);
+}
+
+.project-card button:first-of-type {
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  color: #2e7d32;
+}
+
+.project-card button:first-of-type:hover {
+  background: linear-gradient(135deg, #b8dbb8 0%, #95c895 100%);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #7a5a8a;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
+}

@@ -1,0 +1,228 @@
+.teams-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.teams-container h1 {
+  font-size: 2.2rem;
+  color: #6b4c7a;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+.create-team-section {
+  background: linear-gradient(135deg, #f0e0f0 0%, #e0f0f5 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(200, 150, 200, 0.1);
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+input {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #d4b5d9;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-family: 'Rubik', sans-serif;
+}
+
+input:focus {
+  outline: none;
+  border-color: #7a5a8a;
+  box-shadow: 0 0 0 3px rgba(122, 90, 138, 0.1);
+}
+
+input::placeholder {
+  color: #b0a0b5;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #b8d1f5 0%, #a5c5e8 100%);
+  color: #6b4c7a;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-family: 'Rubik', sans-serif;
+}
+
+button:disabled {
+  background: #d4b5d9;
+  cursor: not-allowed;
+  color: #999;
+}
+
+button:not(:disabled):hover {
+  background: linear-gradient(135deg, #a8c5f5 0%, #95b5e8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 150, 200, 0.2);
+}
+
+/* רשימת כרטיסים (Grid) */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.team-card {
+  background: linear-gradient(135deg, #fff5fa 0%, #f0f5ff 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 2px solid #e8d5e8;
+  box-shadow: 0 4px 15px rgba(200, 150, 200, 0.1);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(200, 150, 200, 0.2);
+  border-color: #d4b5d9;
+}
+
+.team-card h3 {
+  color: #6b4c7a;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.team-card p {
+  color: #7a5a8a;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.btn-primary {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #f5b8d1 0%, #e8a5c5 100%);
+  color: #6b4c7a;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #f09bc8 0%, #e390c0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 150, 200, 0.2);
+}
+
+.add-member-area {
+  margin-top: 1rem;
+  border-top: 2px solid #e8d5e8;
+  padding-top: 1rem;
+}
+
+.add-member-area label {
+  font-size: 0.9rem;
+  color: #7a5a8a;
+  font-weight: 500;
+}
+
+.add-member-area div {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.add-member-area input {
+  padding: 0.6rem;
+  border: 1px solid #d4b5d9;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.add-member-area button {
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  color: #2e7d32;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.add-member-area button:hover {
+  background: linear-gradient(135deg, #b8dbb8 0%, #95c895 100%);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #7a5a8a;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+.badge {
+  background-color: #e1f5fe;
+  color: #0288d1;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.card-body {
+  margin-bottom: 1.5rem;
+  color: #7f8c8d;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #3498db;
+  color: #3498db;
+}
+
+.btn-outline:hover {
+  background: #acafb2;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background: #a5a1a1;
+  border-radius: 12px;
+  color: #7f8c8d;
+}

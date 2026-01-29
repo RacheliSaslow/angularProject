@@ -1,0 +1,35 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h4>אודות WolfTasks</h4>
+        <p>מערכת ניהול משימות חכמה ואינטואיטיבית, שנועדה לעזור לצוותים להישאר מאורגנים, לעמוד ביעדים ולהצליח יחד.</p>
+      </div>
+      <div class="footer-links">
+        <h4>ניווט מהיר</h4>
+        <ul>
+          <li><a routerLink="/">דף הבית</a></li>
+          @if (isLoggedIn()) {
+            <li><a routerLink="/teams">צוותים</a></li>
+            <li><a href="#" (click)="authService.logout()">התנתקות</a></li>
+          } @else {
+            <li><a routerLink="/login">התחברות</a></li>
+            <li><a routerLink="/register">הרשמה</a></li>
+          }
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>עקבו אחרינו</h4>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 WolfTasks. כל הזכויות שמורות. פותח בגאווה עם ❤️ ב-Angular.</p>
+    </div>
+  </div>
+</footer>

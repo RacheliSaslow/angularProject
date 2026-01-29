@@ -1,0 +1,61 @@
+<div class="teams-container">
+  <h1>צוותים</h1>
+
+  @if (errorMessage) {
+    <div class="error-message">
+      <p>{{ errorMessage }}</p>
+      <button (click)="errorMessage = null">סגור</button>
+    </div>
+  }
+
+
+  <div class="create-team-section">
+    <form [formGroup]="createTeamForm" (ngSubmit)="onCreateTeam()">
+      <input type="text" placeholder="שם הצוות החדש" formControlName="name" />
+      <button type="submit" [disabled]="createTeamForm.invalid">
+        צור צוות חדש
+      </button>
+    </form>
+  </div>
+
+  <div class="teams-grid">
+    @for (team of teamsList; track team.id) {
+      <div class="team-card">
+        <div>
+          <h3>{{ team.name }}</h3>
+          <p><strong>תאריך יצירה:</strong> {{ team.created_at | date: 'dd/MM/yyyy' }}</p>
+          <p><strong>חברים בצוות:</strong> {{ team.members_count || 0 }}</p>
+        </div>
+
+        <button
+          class="btn-primary"
+          [routerLink]="['/teams', team.id, 'projects']"
+        >
+          צפה בפרויקטים
+        </button>
+
+        <div class="add-member-area">
+          <label>הוסף חבר לצוות:</label>
+          <div>
+            <input
+              #uid
+              type="number"
+              placeholder="ID של החבר"
+            />
+            <button
+              type="button"
+              (click)="addUser(team.id, uid.value); uid.value = ''"
+            >
+              ➕ הוסף
+            </button>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-state">
+        <p>אתה עדיין לא חלק משום צוות</p>
+        <p>צור צוות חדש כדי להתחיל!</p>
+      </div>
+    }
+  </div>
+</div>

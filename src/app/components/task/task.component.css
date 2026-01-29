@@ -1,0 +1,356 @@
+.board-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+.board-container h2 {
+  font-size: 2.2rem;
+  color: #6b4c7a;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+/* טופס יצירת משימה */
+.create-task-bar {
+  background: linear-gradient(135deg, #f0e0f0 0%, #e0f0f5 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(200, 150, 200, 0.1);
+  margin-bottom: 2rem;
+}
+
+.create-task-bar form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.create-task-bar input,
+.create-task-bar select {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #d4b5d9;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-family: 'Rubik', sans-serif;
+}
+
+.create-task-bar input:focus {
+  outline: none;
+  border-color: #7a5a8a;
+  box-shadow: 0 0 0 3px rgba(122, 90, 138, 0.1);
+}
+
+.create-task-bar input::placeholder {
+  color: #b0a0b5;
+}
+
+.create-task-bar button {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #b8d1f5 0%, #a5c5e8 100%);
+  color: #6b4c7a;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+}
+
+.create-task-bar button:disabled {
+  background: #d4b5d9;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.create-task-bar button:not(:disabled):hover {
+  background: linear-gradient(135deg, #a8c5f5 0%, #95b5e8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 150, 200, 0.2);
+}
+
+/* לוח Kanban */
+.kanban-board {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.column {
+  flex: 0 0 300px;
+  background: linear-gradient(135deg, #f5f0f8 0%, #f0f8ff 100%);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid #e8d5e8;
+  min-height: 500px;
+  box-shadow: 0 4px 15px rgba(200, 150, 200, 0.1);
+}
+
+.column h3 {
+  color: #6b4c7a;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e8d5e8;
+}
+
+.column.todo {
+  background: linear-gradient(135deg, #fff5f5 0%, #f0f8ff 100%);
+}
+
+.column.progress {
+  background: linear-gradient(135deg, #fff8f0 0%, #f0f8ff 100%);
+}
+
+.column.done {
+  background: linear-gradient(135deg, #f5fff5 0%, #f0f8ff 100%);
+}
+
+/* כרטיסי משימה */
+.task-card {
+  background: white;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: 2px solid #e8d5e8;
+  box-shadow: 0 2px 8px rgba(200, 150, 200, 0.1);
+  transition: all 0.3s;
+}
+
+.task-card:hover {
+  box-shadow: 0 8px 16px rgba(200, 150, 200, 0.2);
+  transform: translateY(-2px);
+  border-color: #d4b5d9;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.search-bar {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.7rem 1rem 0.7rem 2.5rem; /* Add padding for icon */
+  border: 2px solid #d4b5d9;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Rubik', sans-serif;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: #b0a0b5;
+}
+
+.search-bar input:focus {
+  border-color: #7a5a8a;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(122, 90, 138, 0.1);
+}
+
+.task-header select {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #d4b5d9;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  background-color: #fff5fa;
+  cursor: pointer;
+}
+
+.priority-label {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.priority-label:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.priority-label i {
+  margin-right: 5px;
+  font-size: 0.7rem;
+}
+
+.priority-high {
+  background-color: #e57373; /* Red */
+}
+
+.priority-medium {
+  background-color: #ffb74d; /* Orange */
+}
+
+.priority-low {
+  background-color: #81c784; /* Green */
+}
+
+.task-card h4 {
+  color: #6b4c7a;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+}
+
+.task-card p {
+  color: #7a5a8a;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.4;
+}
+
+.task-card.done-card {
+  opacity: 0.8;
+  background: #f0fff0;
+}
+
+/* כפתורי פעולות */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.task-card button {
+  flex: 1;
+  min-width: 80px;
+  padding: 0.6rem 0.8rem;
+  background: linear-gradient(135deg, #f5b8d1 0%, #e8a5c5 100%);
+  color: #6b4c7a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.85rem;
+}
+
+.task-card button:hover {
+  background: linear-gradient(135deg, #f09bc8 0%, #e390c0 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(200, 150, 200, 0.2);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #f08080 0%, #e07070 100%) !important;
+  color: white !important;
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #e07070 0%, #d06060 100%) !important;
+}
+
+.task-card button:nth-child(2) {
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  color: #2e7d32;
+}
+
+.task-card button:nth-child(2):hover {
+  background: linear-gradient(135deg, #b8dbb8 0%, #95c895 100%);
+}
+
+.task-card button:nth-child(3) {
+  background: linear-gradient(135deg, #b3e5fc 0%, #80deea 100%);
+  color: #01579b;
+}
+
+.task-card button:nth-child(3):hover {
+  background: linear-gradient(135deg, #80deea 0%, #4dd0e1 100%);
+}
+
+/* תגובות */
+app-comments {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e8d5e8;
+}
+
+/* תגובה ריקה */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #7a5a8a;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
+}
+
+/* רספונסיביות */
+@media (max-width: 1100px) {
+  .kanban-board {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  .column {
+    flex-basis: auto;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .kanban-board {
+    flex-direction: column;
+    align-items: stretch; /* Columns will take full width */
+    gap: 1.5rem;
+  }
+
+  .column {
+    flex-basis: auto; /* Reset flex-basis */
+    min-width: 0; /* Allow shrinking */
+  }
+
+  .create-task-bar form {
+    flex-direction: column;
+  }
+
+  .create-task-bar button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .board-container {
+    padding: 1rem;
+  }
+
+  .column {
+    padding: 1rem;
+  }
+}

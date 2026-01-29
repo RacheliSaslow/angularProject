@@ -1,0 +1,146 @@
+<div class="board-container">
+  <h2>משימות בפרויקט</h2>
+
+  @if (errorMessage) {
+    <div class="error-message">
+      <p>{{ errorMessage }}</p>
+      <button (click)="errorMessage = null">סגור</button>
+    </div>
+  }
+
+
+  <div class="search-bar">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" placeholder="חפש משימה..." (input)="onSearch($event)" />
+  </div>
+
+  <!-- יצירת משימה -->
+  <div class="create-task-bar">
+    <form [formGroup]="createTaskForm" (ngSubmit)="onCreateTask()">
+      <input type="text" placeholder="כותרת המשימה..." formControlName="title" />
+      <input
+        type="text"
+        placeholder="תיאור (אופציונלי)"
+        formControlName="description"
+      />
+      <select formControlName="priority">
+        <option value="Low">נמוכה</option>
+        <option value="Medium">בינונית</option>
+        <option value="High">גבוהה</option>
+      </select>
+      <button type="submit" [disabled]="createTaskForm.invalid">
+        + הוסף משימה
+      </button>
+    </form>
+  </div>
+
+  <div class="kanban-board">
+    <div class="column todo">
+      <h3>📋 לביצוע</h3>
+      @for (task of getTasksByStatus("ToDo"); track task.id) {
+        <div class="task-card">
+          <div class="task-header">
+            <h4>{{ task.title }}</h4>
+            @if (editingTaskId !== task.id) {
+              <span class="priority-label" [ngClass]="'priority-' + task.priority.toLowerCase()" (click)="startEditing(task.id)">{{ task.priority }} <i class="fas fa-pencil-alt fa-xs"></i></span>
+            } @else {
+              <select [value]="task.priority" (change)="updateTaskPriority(task.id, $event)" (blur)="cancelEditing()">
+                <option value="Low">נמוכה</option>
+                <option value="Medium">בינונית</option>
+                <option value="High">גבוהה</option>
+              </select>
+            }
+          </div>
+          <p>{{ task.description }}</p>
+          <div class="actions">
+            <button (click)="updateTaskStatus(task.id, 'In Progress')">
+              ➡️ התחל
+            </button>
+            <button class="delete-btn" (click)="deleteTask(task.id)">🗑️ מחק</button>
+            <button (click)="toggleComments(task.id)">💬 תגובות</button>
+          </div>
+
+          @if (selectedTaskId === task.id) {
+            <app-comments [taskId]="task.id"></app-comments>
+          }
+        </div>
+      } @empty {
+        <div class="empty-column-state">
+          <p>אין משימות לביצוע</p>
+        </div>
+      }
+    </div>
+
+    <!-- עמודה 2: בטיפול -->
+    <div class="column progress">
+      <h3>🔨 בטיפול</h3>
+      @for (task of getTasksByStatus("In Progress"); track task.id) {
+        <div class="task-card">
+          <div class="task-header">
+            <h4>{{ task.title }}</h4>
+            @if (editingTaskId !== task.id) {
+              <span class="priority-label" [ngClass]="'priority-' + task.priority.toLowerCase()" (click)="startEditing(task.id)">{{ task.priority }} <i class="fas fa-pencil-alt fa-xs"></i></span>
+            } @else {
+              <select [value]="task.priority" (change)="updateTaskPriority(task.id, $event)" (blur)="cancelEditing()">
+                <option value="Low">נמוכה</option>
+                <option value="Medium">בינונית</option>
+                <option value="High">גבוהה</option>
+              </select>
+            }
+          </div>
+          <p>{{ task.description }}</p>
+          <div class="actions">
+            <button (click)="updateTaskStatus(task.id, 'Done')">✅ סיום</button>
+            <button (click)="updateTaskStatus(task.id, 'ToDo')">⬅️ חזרה</button>
+            <button (click)="toggleComments(task.id)">💬 תגובות</button>
+          </div>
+
+          @if (selectedTaskId === task.id) {
+            <app-comments [taskId]="task.id"></app-comments>
+          }
+        </div>
+      } @empty {
+        <div class="empty-column-state">
+          <p>אין משימות בטיפול</p>
+        </div>
+      }
+    </div>
+
+    <!-- עמודה 3: בוצע -->
+    <div class="column done">
+      <h3>🎉 בוצע</h3>
+      @for (task of getTasksByStatus("Done"); track task.id) {
+        <div class="task-card done-card">
+          <div class="task-header">
+            <h4>{{ task.title }}</h4>
+            @if (editingTaskId !== task.id) {
+              <span class="priority-label" [ngClass]="'priority-' + task.priority.toLowerCase()" (click)="startEditing(task.id)">{{ task.priority }} <i class="fas fa-pencil-alt fa-xs"></i></span>
+            } @else {
+              <select [value]="task.priority" (change)="updateTaskPriority(task.id, $event)" (blur)="cancelEditing()">
+                <option value="Low">נמוכה</option>
+                <option value="Medium">בינונית</option>
+                <option value="High">גבוהה</option>
+              </select>
+            }
+          </div>
+          <p>{{ task.description }}</p>
+          <div class="actions">
+            <button (click)="updateTaskStatus(task.id, 'In Progress')">
+              ⬅️ החזר
+            </button>
+            <button class="delete-btn" (click)="deleteTask(task.id)">🗑️ מחק</button>
+            <button (click)="toggleComments(task.id)">💬 תגובות</button>
+          </div>
+
+          @if (selectedTaskId === task.id) {
+            <app-comments [taskId]="task.id"></app-comments>
+          }
+        </div>
+      } @empty {
+        <div class="empty-column-state">
+          <p>אין משימות שבוצעו</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>
