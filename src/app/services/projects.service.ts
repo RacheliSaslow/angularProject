@@ -2,13 +2,14 @@ import { Injectable,inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { catchError, throwError } from 'rxjs';
 import { Project } from "../models/project.model";
+import { API_URL } from '../api.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/projects';
+  private apiUrl = `${API_URL}/api/projects`; 
   
   getProjects(){
     return this.http.get<Project[]>(this.apiUrl).pipe(

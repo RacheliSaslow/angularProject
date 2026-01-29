@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { catchError, throwError } from 'rxjs';
 import { inject, Injectable } from "@angular/core";
 import { Task } from "../models/task.model";
+import { API_URL } from '../api.config';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Task } from "../models/task.model";
 export class TasksService {
   
     private http = inject(HttpClient);
-    private apiUrl = 'http://localhost:3000/api/tasks';
+    private apiUrl = `${API_URL}/api/tasks`;
 
     getTasks(projectId: number) {
         let params = new HttpParams().set('projectId', projectId.toString());

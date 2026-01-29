@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { API_URL } from '../api.config';
 import { tap, catchError, throwError } from 'rxjs';
 export interface User {
   id: number;
@@ -20,7 +21,7 @@ import { jwtDecode } from 'jwt-decode';
 export class DataService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  private apiUrl = 'http://localhost:3000/api/auth';
+  private apiUrl = `${API_URL}/api/auth`;
   private tokenKey = 'wolf_token';
   currentUser = signal<User | null>(null);
 

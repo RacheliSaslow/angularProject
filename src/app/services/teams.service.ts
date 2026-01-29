@@ -2,11 +2,12 @@ import { inject, Injectable, signal } from "@angular/core";
 import { switchMap, catchError, throwError } from "rxjs";
 import { Team } from "../models/team.model";
 import { HttpClient } from "@angular/common/http";
+import { API_URL } from '../api.config';
 
 @Injectable({providedIn: 'root'})
 export class TeamsService {
     private http = inject(HttpClient);
-    private apiUrl = 'http://localhost:3000/api/teams';
+    private apiUrl = `${API_URL}/api/teams`;
     teamsSignal = signal<Team[]>([]);
 
     getTeams() {
