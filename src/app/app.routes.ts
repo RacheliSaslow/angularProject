@@ -8,11 +8,11 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'teams', component: TeamsListComponent },
-  { path: 'teams/:teamId/projects', component: ProjectListComponent },
-  { path: 'teams/:teamId/projects/:projectId/tasks', component: TaskComponent },
-  { path: 'teams/:teamId/projects/:projectId/tasks/:taskId/comments', component: CommentsComponent },
+  { path: '', component: HomeComponent, title: 'דף הבית' },
+  { path: 'login', component: LoginComponent, title: 'התחברות' },
+  { path: 'register', component: RegisterComponent, title: 'הרשמה' },
+  { path: 'teams', component: TeamsListComponent, title: 'הצוותים שלי' },
+  { path: 'teams/:teamId/projects', component: ProjectListComponent, title: 'פרויקטים' },
+  { path: 'teams/:teamId/projects/:projectId/tasks', component: TaskComponent, title: 'משימות' },
+  { path: 'teams/:teamId/projects/:projectId/tasks/:taskId/comments', component: CommentsComponent, title: 'תגובות' },
 ];
