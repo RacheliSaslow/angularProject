@@ -11,6 +11,7 @@ export class TasksService {
   
     private http = inject(HttpClient);
     private apiUrl = `${API_URL}/api/tasks`;
+    private commentsApiUrl = `${API_URL}/api/comments`;
 
     getTasks(projectId: number) {
         let params = new HttpParams().set('projectId', projectId.toString());
@@ -45,13 +46,13 @@ export class TasksService {
     
     getComments(taskId: number) {
         const params = new HttpParams().set('taskId', taskId.toString());
-        return this.http.get<any[]>(`http://localhost:3000/api/comments`, { params }).pipe(
+        return this.http.get<any[]>(this.commentsApiUrl, { params }).pipe(
             catchError(error => throwError(() => new Error('שגיאה בקבלת התגובות.')))
         );
     }
 
     createComment(taskId: number, content: string) {
-        return this.http.post<any>(`http://localhost:3000/api/comments`, { taskId, body: content }).pipe(
+        return this.http.post<any>(this.commentsApiUrl, { taskId, body: content }).pipe(
             catchError(error => throwError(() => new Error('שגיאה בשליחת התגובה.')))
         );
     }
