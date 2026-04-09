@@ -18,6 +18,10 @@ A modern, scalable Angular client application built with the latest Angular CLI,
 - **Comprehensive Testing**: Unit tests with Karma and Jasmine
 - **Hot Module Replacement**: Fast development with automatic reloading
 
+## 🚀 Quick Start
+
+🌐 **Live Demo**: [https://angularproject-jkks.onrender.com/](https://angularproject-jkks.onrender.com/)
+
 ## 🛠️ Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -111,6 +115,12 @@ ng e2e
 ```
 
 *Note: You'll need to add an e2e testing package first.*
+
+## 🚀 Deployment
+
+🌐 **Live Application**: [https://angularproject-jkks.onrender.com/](https://angularproject-jkks.onrender.com/)
+
+The application is deployed on Render and automatically updates when changes are pushed to the main branch.
 
 ## 📁 Project Structure
 
